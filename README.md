@@ -1,4 +1,4 @@
-# 🧠 Generative AI Backend with Java + Spring Boot
+# 🧠 Generative AI Application with Java + Spring Boot
 
 This is a simple backend built with **Java** and **Spring Boot**, 
 using the **OpenAI API** to enable generative AI features.
