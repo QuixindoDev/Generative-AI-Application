@@ -7,8 +7,11 @@ using the **OpenAI API** to enable generative AI features.
 
 - Java 24+
 - Spring Boot
-- Spring Web
-- [OpenAI Java SDK](https://github.com/TheoKanning/openai-java)
+  - Spring Web
+  - Spring Security
+  - [OpenAI Java SDK](https://github.com/TheoKanning/openai-java)
+  - Spring Data Jpa
+  - PostgreSQL
 
 ## ⚙️ Installation
 

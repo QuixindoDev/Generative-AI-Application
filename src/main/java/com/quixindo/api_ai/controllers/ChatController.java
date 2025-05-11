@@ -4,13 +4,11 @@ import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.validation.constraints.NotNull;
-
 @RestController
 public class ChatController {
     private final ChatClient chatClient;
 
-    public ChatController(@NotNull ChatClient.Builder chatClientBuilder){
+    public ChatController(ChatClient.Builder chatClientBuilder){
         this.chatClient = chatClientBuilder.build();
     }
 
