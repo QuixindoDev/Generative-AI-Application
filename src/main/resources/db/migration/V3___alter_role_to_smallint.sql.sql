@@ -1,0 +1,1 @@
+ALTER TABLE tb_users ALTER COLUMN role TYPE SMALLINT USING role::smallint;
