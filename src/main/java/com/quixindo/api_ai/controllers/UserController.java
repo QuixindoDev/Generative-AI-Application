@@ -3,6 +3,7 @@ package com.quixindo.api_ai.controllers;
 import com.quixindo.api_ai.dto.UserDTO;
 import com.quixindo.api_ai.models.User;
 import com.quixindo.api_ai.services.UserService;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,23 +18,20 @@ public class UserController {
     }
 
     @GetMapping("/")
-    public String welcome(){
-        return "Welcome!!! Find a best resource.";
+    public ResponseEntity<String> welcome(){
+        return ResponseEntity.ok().body("Welcome!!! Find a best resource.");
     }
 
     @GetMapping("/users")
-    public List<User> handleGetUsers() {
-        return userService.listAll();
+    public ResponseEntity<List<User>> handleGetUsers() {
+        List<User> users = userService.listAll();
+        return ResponseEntity.status(200).body(users);
     }
 
     @PostMapping("/auth/register")
-    public User handleRegister(@RequestBody UserDTO userDTO) throws Exception {
-        return userService.register(userDTO);
-    }
-
-    @PostMapping("/auth/login")
-    public String handleLogin() {
-        return "Login Route";
+    public ResponseEntity<User> handleRegister(@RequestBody UserDTO userDTO) throws Exception {
+        User user = userService.register(userDTO);
+        return ResponseEntity.status(201).body(user);
     }
 
 //    @PutMapping("/upd/${id}")

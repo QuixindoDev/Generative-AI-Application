@@ -1,6 +1,7 @@
 package com.quixindo.api_ai.services;
 
 import com.quixindo.api_ai.dto.UserDTO;
+import com.quixindo.api_ai.infra.exceptions.EmailAlreadyExistsException;
 import com.quixindo.api_ai.models.User;
 import com.quixindo.api_ai.models.UserRole;
 import com.quixindo.api_ai.repositories.UserRepository;
@@ -26,8 +27,7 @@ public class UserService {
 
     public User register(UserDTO userDTO) throws Exception {
         UserDetails email = userRepository.findByEmail(userDTO.email());
-        if (email != null)
-            throw new Exception("This email cannot be registered");
+        if (email != null)  throw new EmailAlreadyExistsException("This email already exists");
         User user = new User();
         user.setName(userDTO.name());
         user.setEmail(userDTO.email());
@@ -35,6 +35,4 @@ public class UserService {
         user.setRole(UserRole.USER);
         return userRepository.save(user);
     }
-
-
 }
